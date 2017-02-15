@@ -35,7 +35,8 @@ public final class JsonPatch {
 
     private static final DecodePathFunction DECODE_PATH_FUNCTION = new DecodePathFunction();
 
-    private JsonPatch() {}
+    private JsonPatch() {
+    }
 
     private final static class DecodePathFunction implements Function<String, String> {
         @Override
@@ -128,4 +129,5 @@ public final class JsonPatch {
         List<String> paths = Splitter.on('/').splitToList(path.toString().replaceAll("\"", ""));
         return Lists.newArrayList(Iterables.transform(paths, DECODE_PATH_FUNCTION));
     }
+}
 
